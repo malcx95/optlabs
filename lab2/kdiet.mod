@@ -8,7 +8,7 @@ param minkrav{BEHOV};
 param maxkrav{BEHOV};
 param inneh{BEHOV,MAT};
 
-var port{j in MAT} >= 0, <= maxport[j];
+var port{j in MAT} >= 0, <= maxport[j], integer;
 
 minimize totalpris:  sum {j in MAT} pris[j] * port[j];
 subject to minnytta{i in BEHOV}:
