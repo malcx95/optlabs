@@ -1,0 +1,10 @@
+Antal variabler i P1: m*n + m, 
+    Floc5: 10*50 + 10 = 510,
+    Floc8: 30*200 + 30 = 6030
+
+Antal bivillkor i P1: m + n
+    Floc5: 10 + 50 = 60,
+    Floc8: 30 + 200 = 230
+
+
+
