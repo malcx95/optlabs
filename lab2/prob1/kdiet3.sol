@@ -1,197 +1,205 @@
 Problem:    kdiet
 Rows:       25
-Columns:    63 (63 integer, 0 binary)
+Columns:    63
 Non-zeros:  1126
-Status:     INTEGER OPTIMAL
-Objective:  totalpris = 6.47 (MINimum)
+Status:     OPTIMAL
+Objective:  totalpris = 5.363036219 (MINimum)
 
-   No.   Row name        Activity     Lower bound   Upper bound
------- ------------    ------------- ------------- -------------
-     1 totalpris                6.47                             
+   No.   Row name   St   Activity     Lower bound   Upper bound    Marginal
+------ ------------ -- ------------- ------------- ------------- -------------
+     1 totalpris    B        5.36304                             
      2 minnytta[Cal]
-                                2015          2000               
+                    NL          2000          2000                       < eps
      3 minnytta[CalFat]
-                                 320            -0               
+                    B        306.548            -0               
      4 minnytta[Fat]
-                                34.5            -0               
+                    B        32.7316            -0               
      5 minnytta[SatFat]
-                                12.5            -0               
+                    B        12.9956            -0               
      6 minnytta[Chol]
-                                 112            -0               
+                    B        123.605            -0               
      7 minnytta[Sodium]
-                                2965            -0               
+                    B           3000            -0               
      8 minnytta[Carbo]
-                                 372           350               
+                    B        370.218           350               
      9 minnytta[Protein]
-                                  55            55               
+                    NL            55            55                   0.0134692 
     10 minnytta[VitA]
-                                 101           100               
+                    NL           100           100                   0.0135689 
     11 minnytta[VitC]
-                                 191           100               
+                    NL           100           100                  0.00505887 
     12 minnytta[Calcium]
-                                 100           100               
+                    NL           100           100                   0.0126186 
     13 minnytta[Iron]
-                                 102           100               
+                    NL           100           100                   0.0278307 
     14 maxnytta[Cal]
-                                2015                       99999 
+                    B           2000                       99999 
     15 maxnytta[CalFat]
-                                 320                       99999 
+                    B        306.548                       99999 
     16 maxnytta[Fat]
-                                34.5                         100 
+                    B        32.7316                         100 
     17 maxnytta[SatFat]
-                                12.5                          30 
+                    B        12.9956                          30 
     18 maxnytta[Chol]
-                                 112                         375 
+                    B        123.605                         375 
     19 maxnytta[Sodium]
-                                2965                        3000 
+                    NU          3000                        3000  -0.000428492 
     20 maxnytta[Carbo]
-                                 372                         375 
+                    B        370.218                         375 
     21 maxnytta[Protein]
-                                  55                       99999 
+                    B             55                       99999 
     22 maxnytta[VitA]
-                                 101                       99999 
+                    B            100                       99999 
     23 maxnytta[VitC]
-                                 191                       99999 
+                    B            100                       99999 
     24 maxnytta[Calcium]
-                                 100                       99999 
+                    B            100                       99999 
     25 maxnytta[Iron]
-                                 102                       99999 
+                    B            100                       99999 
 
-   No. Column name       Activity     Lower bound   Upper bound
------- ------------    ------------- ------------- -------------
+   No. Column name  St   Activity     Lower bound   Upper bound    Marginal
+------ ------------ -- ------------- ------------- ------------- -------------
      1 port[Hamburger]
-                    *              1             0           999 
+                    NL             0             0           999     0.0201731 
      2 port[Cheeseburger]
-                    *              1             0           999 
+                    B        2.05861             0           999 
      3 port['Quarter Pounder w/ Cheese']
-                    *              0             0           999 
+                    NL             0             0           999      0.769431 
      4 port['McLean Deluxe']
-                    *              0             0           999 
+                    NL             0             0           999        1.1486 
      5 port['McLean Deluxe w/ Cheese']
-                    *              0             0           999 
+                    NL             0             0           999       1.18499 
      6 port['Big Mac']
-                    *              0             0           999 
+                    NL             0             0           999      0.921018 
      7 port[Filet-O-Fish]
-                    *              0             0           999 
+                    NL             0             0           999       1.06951 
      8 port['McGrilled Chicken']
-                    *              0             0           999 
+                    NL             0             0           999       1.56747 
      9 port['McChicken Sandwich']
-                    *              0             0           999 
+                    NL             0             0           999       1.63489 
     10 port['Fries, small']
-                    *              0             0           999 
+                    NL             0             0           999      0.645182 
     11 port['Fries, large']
-                    *              0             0           999 
+                    NL             0             0           999      0.881427 
     12 port['Fries, super']
-                    *              0             0           999 
+                    NL             0             0           999       1.07661 
     13 port['Chicken McNuggets (6 pcs)']
-                    *              0             0           999 
+                    NL             0             0           999       1.50216 
     14 port['Chicken McNuggets (9 pcs)']
-                    *              0             0           999 
+                    NL             0             0           999       2.08607 
     15 port['Chicken McNuggets (20 pcs)']
-                    *              0             0           999 
+                    NL             0             0           999       3.91489 
     16 port['Hot Mustard Sauce']
-                    *              1             0           999 
+                    NL             0             0           999     0.0818859 
     17 port['Barbeque Sauce']
-                    *              0             0           999 
+                    NL             0             0           999     0.0155147 
     18 port['Sweet ''N Sour Sauce']
-                    *              2             0           999 
-    19 port[Honey]  *             15             0           999 
+                    B        4.12272             0           999 
+    19 port[Honey]  B        15.7683             0           999 
     20 port['Chef Salad']
-                    *              0             0           999 
+                    NL             0             0           999      0.936544 
     21 port['Chunky Chicken Salad']
-                    *              0             0           999 
+                    B        0.03623             0           999 
     22 port['Garden Salad']
-                    *              0             0           999 
+                    NL             0             0           999      0.294735 
     23 port['Side Salad']
-                    *              0             0           999 
+                    NL             0             0           999     0.0548082 
     24 port[Croutons]
-                    *              0             0           999 
+                    NL             0             0           999     0.0465197 
     25 port['Bacon Bits']
-                    *              2             0           999 
+                    NL             0             0           999     0.0272375 
     26 port['Bleu Cheese Dressing']
-                    *              0             0           999 
+                    NL             0             0           999      0.321369 
     27 port['Ranch Dressing']
-                    *              0             0           999 
+                    NL             0             0           999      0.222816 
     28 port['1000 Island Dressing']
-                    *              0             0           999 
+                    NL             0             0           999      0.214246 
     29 port['Lite Vinaigrette Dressing']
-                    *              0             0           999 
+                    NL             0             0           999      0.102838 
     30 port['French Rdcd Cal Dressing']
-                    *              0             0           999 
+                    NL             0             0           999      0.197106 
     31 port['Egg McMuffin']
-                    *              0             0           999 
+                    NL             0             0           999       0.68317 
     32 port['Sausage McMuffin']
-                    *              0             0           999 
+                    NL             0             0           999      0.693793 
     33 port['Sansage McMuffin with Egg']
-                    *              0             0           999 
+                    NL             0             0           999      0.593592 
     34 port['English Muffin']
-                    *              0             0           999 
+                    NL             0             0           999      0.455712 
     35 port['Sausage Biscuit']
-                    *              0             0           999 
+                    NL             0             0           999      0.694746 
     36 port['Sausage Biscuit with Egg']
-                    *              0             0           999 
+                    NL             0             0           999      0.988347 
     37 port['Bacon, Egg & Cheese Biscuit']
-                    *              0             0           999 
+                    NL             0             0           999       1.00306 
     38 port['Hash Browns']
-                    *              0             0           999 
+                    NL             0             0           999      0.807815 
     39 port['Breakfast Burrito']
-                    *              0             0           999 
+                    NL             0             0           999      0.541786 
     40 port[Cheerios]
-                    *              1             0           999 
+                    B        2.26957             0           999 
     41 port[Wheaties]
-                    *              2             0           999 
+                    NL             0             0           999      0.202922 
     42 port['Apple Danish']
-                    *              0             0           999 
+                    NL             0             0           999        0.6148 
     43 port['Cheese Danish']
-                    *              0             0           999 
+                    NL             0             0           999      0.539158 
     44 port['Cinnamon Raisin Danish']
-                    *              0             0           999 
+                    NL             0             0           999      0.510486 
     45 port['Raspberry Danish']
-                    *              0             0           999 
+                    NL             0             0           999      0.576094 
     46 port['Lowfat Frozen Yogurt Cone']
-                    *              0             0           999 
+                    NL             0             0           999      0.617079 
     47 port['Vanilla Shake']
-                    *              0             0           999 
+                    NL             0             0           999      0.429391 
     48 port['Chocolate Shake']
-                    *              0             0           999 
+                    NL             0             0           999      0.334594 
     49 port['Strawberry Shake']
-                    *              0             0           999 
+                    NL             0             0           999      0.429391 
     50 port['1% Lowfat Milk']
-                    *              2             0           999 
+                    B        1.77758             0           999 
     51 port['Orange Juice']
-                    *              1             0           999 
+                    B       0.408178             0           999 
     52 port['Coca-Cola (small)']
-                    *              0             0           999 
+                    NL             0             0           999      0.886427 
     53 port['Coca-Cola (medium)']
-                    *              0             0           999 
+                    NL             0             0           999       0.99857 
     54 port['Coca-Cola (large)']
-                    *              0             0           999 
+                    NL             0             0           999       1.18285 
     55 port['Diet Coke (small)']
-                    *              0             0           999 
+                    NL             0             0           999       0.88857 
     56 port['Diet Coke (medium)']
-                    *              0             0           999 
+                    NL             0             0           999       1.00071 
     57 port['Diet Coke (large)']
-                    *              0             0           999 
+                    NL             0             0           999         1.185 
     58 port['Sprite (small)']
-                    *              0             0           999 
+                    NL             0             0           999      0.894997 
     59 port['Sprite (medium)']
-                    *              0             0           999 
+                    NL             0             0           999       1.01142 
     60 port['Sprite (large)']
-                    *              0             0           999 
+                    NL             0             0           999       1.19999 
     61 port['H-C Orange Drink (small)']
-                    *              0             0           999 
+                    NL             0             0           999      0.894997 
     62 port['H-C Orange Drink (medium)']
-                    *              0             0           999 
+                    NL             0             0           999       1.01142 
     63 port['H-C Orange Drink (large)']
-                    *              0             0           999 
+                    NL             0             0           999       1.20214 
 
-Integer feasibility conditions:
+Karush-Kuhn-Tucker optimality conditions:
 
-KKT.PE: max.abs.err = 0.00e+00 on row 0
-        max.rel.err = 0.00e+00 on row 0
+KKT.PE: max.abs.err = 4.55e-13 on row 2
+        max.rel.err = 1.14e-16 on row 2
         High quality
 
 KKT.PB: max.abs.err = 0.00e+00 on row 0
+        max.rel.err = 0.00e+00 on row 0
+        High quality
+
+KKT.DE: max.abs.err = 1.42e-14 on column 21
+        max.rel.err = 1.98e-15 on column 21
+        High quality
+
+KKT.DB: max.abs.err = 0.00e+00 on row 0
         max.rel.err = 0.00e+00 on row 0
         High quality
 

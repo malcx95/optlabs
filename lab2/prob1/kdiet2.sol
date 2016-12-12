@@ -1,70 +1,78 @@
 Problem:    kdiet
 Rows:       15
-Columns:    9 (9 integer, 0 binary)
+Columns:    9
 Non-zeros:  125
-Status:     INTEGER OPTIMAL
-Objective:  totalpris = 15.05 (MINimum)
+Status:     OPTIMAL
+Objective:  totalpris = 14.8557377 (MINimum)
 
-   No.   Row name        Activity     Lower bound   Upper bound
------- ------------    ------------- ------------- -------------
-     1 totalpris               15.05                             
+   No.   Row name   St   Activity     Lower bound   Upper bound    Marginal
+------ ------------ -- ------------- ------------- ------------- -------------
+     1 totalpris    B        14.8557                             
      2 minnytta[Cal]
-                                3950          2000               
+                    B        3965.37          2000               
      3 minnytta[Carbo]
-                                 352           350               
+                    NL           350           350                   0.0277049 
      4 minnytta[Protein]
-                                 177            55               
+                    B        172.029            55               
      5 minnytta[VitA]
-                                 102           100               
+                    NL           100           100                   0.0267541 
      6 minnytta[VitC]
-                                 115           100               
+                    B        132.213           100               
      7 minnytta[Calc]
-                                 255           100               
+                    B        234.221           100               
      8 minnytta[Iron]
-                                 100           100               
+                    NL           100           100                   0.0248361 
      9 maxnytta[Cal]
-                                3950                       99999 
+                    B        3965.37                       99999 
     10 maxnytta[Carbo]
-                                 352                         375 
+                    B            350                         375 
     11 maxnytta[Protein]
-                                 177                       99999 
+                    B        172.029                       99999 
     12 maxnytta[VitA]
-                                 102                       99999 
+                    B            100                       99999 
     13 maxnytta[VitC]
-                                 115                       99999 
+                    B        132.213                       99999 
     14 maxnytta[Calc]
-                                 255                       99999 
+                    B        234.221                       99999 
     15 maxnytta[Iron]
-                                 100                       99999 
+                    B            100                       99999 
 
-   No. Column name       Activity     Lower bound   Upper bound
------- ------------    ------------- ------------- -------------
+   No. Column name  St   Activity     Lower bound   Upper bound    Marginal
+------ ------------ -- ------------- ------------- ------------- -------------
      1 port['Quarter Pounder w/ Cheese']
-                    *              4             0           100 
+                    B        4.38525             0           100 
      2 port['McLean Deluxe w/ Cheese']
-                    *              0             0           100 
+                    NL             0             0           100      0.322295 
      3 port['Big Mac']
-                    *              0             0           100 
+                    NL             0             0           100     0.0191475 
      4 port[Filet-O-Fish]
-                    *              1             0           100 
+                    NL             0             0           100     0.0853443 
      5 port['McGrilled Chicken']
-                    *              0             0           100 
+                    NL             0             0           100      0.713672 
      6 port['Fries, small']
-                    *              5             0           100 
+                    B        6.14754             0           100 
      7 port['Sausage McMuffin']
-                    *              0             0           100 
+                    NL             0             0           100     0.0624098 
      8 port['1% Lowfat Milk']
-                    *              4             0           100 
+                    B        3.42213             0           100 
      9 port['Orange Juice']
-                    *              0             0           100 
+                    NL             0             0           100     0.0627213 
 
-Integer feasibility conditions:
+Karush-Kuhn-Tucker optimality conditions:
 
-KKT.PE: max.abs.err = 0.00e+00 on row 0
-        max.rel.err = 0.00e+00 on row 0
+KKT.PE: max.abs.err = 1.42e-14 on row 8
+        max.rel.err = 7.07e-17 on row 8
         High quality
 
 KKT.PB: max.abs.err = 0.00e+00 on row 0
+        max.rel.err = 0.00e+00 on row 0
+        High quality
+
+KKT.DE: max.abs.err = 1.11e-16 on column 6
+        max.rel.err = 5.05e-17 on column 8
+        High quality
+
+KKT.DB: max.abs.err = 0.00e+00 on row 0
         max.rel.err = 0.00e+00 on row 0
         High quality
 
