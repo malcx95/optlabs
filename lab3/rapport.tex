@@ -64,16 +64,17 @@ tidtabell, så inga extra transportkostnader tillkommer.
       \node[main node] (D) [right of=A] {D};
 
       \path[every node/.style={font=\sffamily\small}]
-        (A) edge node {} (D);
-        (B) edge node {} (A);
-        (B) edge node {} (D);
-        (C) edge node {} (B);
+        (A) edge node {} (D)
+        (B) edge node {} (A)
+        (B) edge node {} (D)
+        (C) edge node {} (B)
         (D) edge node {} (C);
 
     \end{tikzpicture}
         \caption{Modell av vägarna mellan tågstationerna\label{trackfig}}
     \end{centering}
 \end{figure}
+
 Uppgiften är planera transporten av vagnar sådan att vinsten maximeras.
 
 \section*{Modell}
@@ -102,36 +103,36 @@ Problemet formuleras som ett maxflödesproblem. Se figur \ref{modfig} nedan.
   \node[main node] (15) [above right of=16] {15};
 
   \path[every node/.style={font=\sffamily\small}]
-    (1) edge node [left] {0, 7} (2);
-    (2) edge [bend right] node[left] {0, 7} (4);
-    (3) edge [left] node {0, 13} (5);
-    (3) edge node [left] {} (4);
-    (1) edge node [left] {} (6);
-    (2) edge node [left] {} (5);
-    (5) edge node [left] {} (9);
-    (6) edge node [left] {} (10);
-    (10) edge node [left] {} (13);
-    (9) edge node [left] {} (12);
-    (4) edge node [left] {} (8);
-    (8) edge node [left] {} (14);
-    (7) edge node [left] {} (11);
-    (5) edge node [left] {0, 13} (7);
-    (6) edge node [right] {0, 8} (7);
-    (7) edge node [right] {0, 13} (10);
-    (7) edge node [right] {0, 8} (14);
-    (8) edge [bend left] node[right] {0, 8} (9);
-    (12) edge [bend right] node[right] {0, 6} (14);
-    (11) edge [left] node {0, 10} (12);
-    (9) edge node [left] {0, 8} (13);
-    (10) edge [bend right] node[right] {0, 6} (12);
-    (16) edge [right] node {} (15);
-    (12) edge [right] node {2, inf} (16);
-    (13) edge [bend right] node[right] {-22, 2} (15);
-    (13) edge [right] node {1, inf} (16);
-    (12) edge [right] node {-28, 65} (15);
-    (14) edge [right] node {3, inf} (16);
-    (14) edge [right] node {-26, 25} (15);
-    (11) edge [bend left] node {4, inf} (16);
+    (1) edge node [left] {0, 7} (2)
+    (2) edge [bend right] node[left] {0, 7} (4)
+    (3) edge [left] node {0, 13} (5)
+    (3) edge node [left] {} (4)
+    (1) edge node [left] {} (6)
+    (2) edge node [left] {} (5)
+    (5) edge node [left] {} (9)
+    (6) edge node [left] {} (10)
+    (10) edge node [left] {} (13)
+    (9) edge node [left] {} (12)
+    (4) edge node [left] {} (8)
+    (8) edge node [left] {} (14)
+    (7) edge node [left] {} (11)
+    (5) edge node [left] {0, 13} (7)
+    (6) edge node [right] {0, 8} (7)
+    (7) edge node [right] {0, 13} (10)
+    (7) edge node [right] {0, 8} (14)
+    (8) edge [bend left] node[right] {0, 8} (9)
+    (12) edge [bend right] node[right] {0, 6} (14)
+    (11) edge [left] node {0, 10} (12)
+    (9) edge node [left] {0, 8} (13)
+    (10) edge [bend right] node[right] {0, 6} (12)
+    (16) edge [right] node {} (15)
+    (12) edge [right] node {2, inf} (16)
+    (13) edge [bend right] node[right] {-22, 2} (15)
+    (13) edge [right] node {1, inf} (16)
+    (12) edge [right] node {-28, 65} (15)
+    (14) edge [right] node {3, inf} (16)
+    (14) edge [right] node {-26, 25} (15)
+    (11) edge [bend left] node {4, inf} (16)
     (11) edge [bend left] node {-24, 15} (15);
 \end{tikzpicture}
         \caption{Modell av problemet.\label{modfig}}
@@ -159,6 +160,80 @@ som efterfrågas. Detta gör att vagnar som inte efterfrågas måste åka till n
 16 innan de åker till 15 (en båge utan kostnad och oändlig kapacitet), 
 för att betala lageravgiften.
 
+\subsection*{Extra tågförbindelse}
+Enligt problemtexten (b) kan ett extra godståg sättas in mellan station A och C,
+utan att stanna vid andra stationer. Detta tåg avgår 12.30 och kommer fram
+13.45 och kan ta 15 godsvagnar. Problemet blir då att hitta den högsta kostnad
+som den nya förbindelsen får ha för att det ska vara lönsamt att skicka den
+vägen.
+
+I denna situation blir modellen av problemet som i figur \ref{modfig2}.
+
+En ny länk läggs alltså till, mellan nod 6 och 8 (röd i figuren) med kapacitet
+15. Den har en okänd bågkostnad \textit{a}. Problemet handlar då om att hitta
+högsta värdet på \textit{a} sådan att den bågen används.
+
+\begin{figure}[h]
+    \begin{centering}
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=3cm,
+                    thick,main node/.style={circle,draw,font=\sffamily\Large\bfseries}]
+
+  \node[main node] (1)  [] {1};
+  \node[main node] (2)  [above of=1] {2};
+  \node[main node] (3)  [above of=2] {3};
+  \node[main node] (4)  [right of=3] {4};
+  \node[main node] (5)  [right of=2] {5};
+  \node[main node] (6)  [right  of=1] {6};
+  \node[main node] (7)  [above right of=4] {7};
+  \node[main node] (8)  [right of=4] {8};
+  \node[main node] (9)  [below of=8] {9};
+  \node[main node] (10) [right of=6] {10};
+  \node[main node] (11) [right of=7] {11};
+  \node[main node] (12) [right of=9] {12};
+  \node[main node] (13) [right of=10] {13};
+  \node[main node] (14) [right of=8] {14};
+  \node[main node] (16) [right of=12] {16};
+  \node[main node] (15) [above right of=16] {15};
+
+  \path[every node/.style={font=\sffamily\small}]
+    (1) edge node [left] {0, 7} (2)
+    (2) edge [bend right] node[left] {0, 7} (4)
+    (3) edge [left] node {0, 13} (5)
+    (3) edge node [left] {} (4)
+    (1) edge node [left] {} (6)
+    (2) edge node [left] {} (5)
+    (5) edge node [left] {} (9)
+    (6) edge node [left] {} (10)
+    (10) edge node [left] {} (13)
+    (9) edge node [left] {} (12)
+    (4) edge node [left] {} (8)
+    (8) edge node [left] {} (14)
+    (7) edge node [left] {} (11)
+    (5) edge node [left] {0, 13} (7)
+    (6) edge node [right] {0, 8} (7)
+    (6) edge[red] node [right] {a, 15} (8)
+    (7) edge node [right] {0, 13} (10)
+    (7) edge node [right] {0, 8} (14)
+    (8) edge [bend left] node[right] {0, 8} (9)
+    (12) edge [bend right] node[right] {0, 6} (14)
+    (11) edge [left] node {0, 10} (12)
+    (9) edge node [left] {0, 8} (13)
+    (10) edge [bend right] node[right] {0, 6} (12)
+    (16) edge [right] node {} (15)
+    (12) edge [right] node {2, inf} (16)
+    (13) edge [bend right] node[right] {-22, 2} (15)
+    (13) edge [right] node {1, inf} (16)
+    (12) edge [right] node {-28, 65} (15)
+    (14) edge [right] node {3, inf} (16)
+    (14) edge [right] node {-26, 25} (15)
+    (11) edge [bend left] node {4, inf} (16)
+    (11) edge [bend left] node {-24, 15} (15);
+\end{tikzpicture}
+        \caption{Modell av problemet med extra tågförbindelse\label{modfig2}}
+    \end{centering}
+\end{figure}
+
+\newpage
 \section*{Resultat}
 Efter inmatning i VINEOPT erhålls ett flöde som i figur \ref{resfig}, i vilket
 de röda siffrorna representerar flödet i de röda bågarna. Totalkostnaden för
@@ -193,11 +268,23 @@ Följande tabell beskriver vad som ska göras vid alla tågresor:
 Detta gör att 40 vagnar lämnas på station A, 44 i B, 8 i C samt 15 i D. Man
 behöver betala lagerkostnad för 38 av de vagnar som lämnats i A.
 
+\subsection*{Extra tågförbindelse}
+Prövning av olika värden visade att värdet på \textit{a} måste vara högst 28
+kr/vagn. Lösningen i VINEOPT visas i figur \ref{resfig2}.
+
+\begin{figure}[h]
+    \begin{centering}
+        \includegraphics[width=15cm]{res2.png}
+        \caption{Resultatet i VINEOPT med den extra tågförbindelsen\label{resfig2}}
+    \end{centering}
+\end{figure}
+
+\newpage
 \section*{Svar}
 
 a) Maxvinst 1806
 
-b) Vagnarna måste vara billigare än 29 kr per vagn. Man ska skicka 15 vagnar
+b) Kostnaden måste vara högst 28 kr per vagn. Man ska skicka 15 vagnar
 med det tåget, som lämnas till slutet av dagen. Vinsten blir då 1814 kr.
 
 c) Om man skickar 1 vagn vid 15.00-17.15 så kan godsavdelningen betala mindre än 26
