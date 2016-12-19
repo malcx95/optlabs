@@ -64,11 +64,11 @@ tidtabell, så inga extra transportkostnader tillkommer.
       \node[main node] (D) [right of=A] {D};
 
       \path[every node/.style={font=\sffamily\small}]
-        (A) edge node {} (D)
-        (B) edge node {} (A)
-        (B) edge node {} (D)
-        (C) edge node {} (B)
-        (D) edge node {} (C)
+        (A) edge node {} (D);
+        (B) edge node {} (A);
+        (B) edge node {} (D);
+        (C) edge node {} (B);
+        (D) edge node {} (C);
 
     \end{tikzpicture}
         \caption{Modell av vägarna mellan tågstationerna\label{trackfig}}
@@ -102,37 +102,37 @@ Problemet formuleras som ett maxflödesproblem. Se figur \ref{modfig} nedan.
   \node[main node] (15) [above right of=16] {15};
 
   \path[every node/.style={font=\sffamily\small}]
-    (1) edge node [left] {0, 7} (2)
-    (2) edge [bend right] node[left] {0, 7} (4)
-    (3) edge [left] node {0, 13} (5)
-    (3) edge node [left] {} (4)
-    (1) edge node [left] {} (6)
-    (2) edge node [left] {} (5)
-    (5) edge node [left] {} (9)
-    (6) edge node [left] {} (10)
-    (10) edge node [left] {} (13)
-    (9) edge node [left] {} (12)
-    (4) edge node [left] {} (8)
-    (8) edge node [left] {} (14)
-    (7) edge node [left] {} (11)
-    (5) edge node [left] {0, 13} (7)
-    (6) edge node [right] {0, 8} (7)
-    (7) edge node [right] {0, 13} (10)
-    (7) edge node [right] {0, 8} (14)
-    (8) edge [bend left] node[right] {0, 8} (9)
-    (12) edge [bend right] node[right] {0, 6} (14)
-    (11) edge [left] node {0, 10} (12)
-    (9) edge node [left] {0, 8} (13)
-    (10) edge [bend right] node[right] {0, 6} (12)
-    (16) edge [right] node {} (15)
-    (12) edge [right] node {2, inf} (16)
-    (13) edge [bend right] node[right] {-22, 2} (15)
-    (13) edge [right] node {1, inf} (16)
-    (12) edge [right] node {-28, 65} (15)
-    (14) edge [right] node {3, inf} (16)
-    (14) edge [right] node {-26, 25} (15)
-    (11) edge [bend left] node {4, inf} (16)
-    (11) edge [bend left] node {-24, 15} (15)
+    (1) edge node [left] {0, 7} (2);
+    (2) edge [bend right] node[left] {0, 7} (4);
+    (3) edge [left] node {0, 13} (5);
+    (3) edge node [left] {} (4);
+    (1) edge node [left] {} (6);
+    (2) edge node [left] {} (5);
+    (5) edge node [left] {} (9);
+    (6) edge node [left] {} (10);
+    (10) edge node [left] {} (13);
+    (9) edge node [left] {} (12);
+    (4) edge node [left] {} (8);
+    (8) edge node [left] {} (14);
+    (7) edge node [left] {} (11);
+    (5) edge node [left] {0, 13} (7);
+    (6) edge node [right] {0, 8} (7);
+    (7) edge node [right] {0, 13} (10);
+    (7) edge node [right] {0, 8} (14);
+    (8) edge [bend left] node[right] {0, 8} (9);
+    (12) edge [bend right] node[right] {0, 6} (14);
+    (11) edge [left] node {0, 10} (12);
+    (9) edge node [left] {0, 8} (13);
+    (10) edge [bend right] node[right] {0, 6} (12);
+    (16) edge [right] node {} (15);
+    (12) edge [right] node {2, inf} (16);
+    (13) edge [bend right] node[right] {-22, 2} (15);
+    (13) edge [right] node {1, inf} (16);
+    (12) edge [right] node {-28, 65} (15);
+    (14) edge [right] node {3, inf} (16);
+    (14) edge [right] node {-26, 25} (15);
+    (11) edge [bend left] node {4, inf} (16);
+    (11) edge [bend left] node {-24, 15} (15);
 \end{tikzpicture}
         \caption{Modell av problemet.\label{modfig}}
     \end{centering}
